@@ -1,0 +1,36 @@
+networks:
+  db-project:
+    name: db-project
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d/
+    networks:
+      - db-project
+    depends_on:
+      - php
+  
+  php:
+    build: ./images/php
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - db-project
+    depends_on:
+      - pgsql
+
+  pgsql:
+    build: ./images/postgres
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init/rent-db-dump.sql:/docker-entrypoint-initdb.d/data.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - db-project

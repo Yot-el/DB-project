@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination__item {
+  text-decoration: none;
+  color: inherit;
+  font-size: 18px;
+  padding: 3px;
+
+  &:hover {
+    color: var(--brown);
+  }
+}
+
+.pagination__item--current {
+  text-decoration: underline;
+}

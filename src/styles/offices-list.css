@@ -1,0 +1,27 @@
+.office-list {
+  flex-grow: 1;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.office-list__item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--brown);
+  padding: 0 0 10px 0;
+}
+
+.office-list__link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: var(--brown);
+  }
+}
+
+.office-list__id {
+  margin: 0;
+}

@@ -1,0 +1,17 @@
+.client-link {
+  color: inherit;
+
+  &:hover {
+    color: var(--brown);
+  }
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  row-gap: 5px;
+}
+
+.info-name {
+  font-weight: 500;
+}

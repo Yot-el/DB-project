@@ -1,0 +1,19 @@
+.main__clients-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.main__clients-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.main__form {
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+}
