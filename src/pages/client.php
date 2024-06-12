@@ -70,7 +70,7 @@
           </div>
           <div class="client-card__buttons">
             <div class="client-card__buttons-row">
-              <a href="#" class="button button--delete" >Удалить пользователя</a>
+              <a href="#" class="button button--delete delete-modal-open" >Удалить пользователя</a>
             </div>
             <div class="client-card__buttons-row">
               <a href="add-rent.php" class="button">Добавить аренду</a>
@@ -112,5 +112,13 @@
       </form>
       <?php } ?>
     </section>
+    <dialog class="delete-modal">
+      <h2>Вы точно хотите удалить этого пользователя?</h2>
+      <div class="delete-modal__buttons">
+        <a class="button button--delete" href="delete.php?client_id=<?=$client->id?>">Удалить пользователя</a>
+        <a href="#" class="button delete-modal-close">Назад</a>
+      </div>
+    </dialog>
+    <script type="text/javascript" src="../js/client.js"></script>
   </body>
 </html>

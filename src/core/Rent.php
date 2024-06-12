@@ -4,7 +4,7 @@ class Rent {
   private Database $db;
   public int | null $id = null;
   public int $office_id;
-  public int $client_id;
+  public int | null $client_id;
   public string $start_date;
   public string $end_date;
   public string | null $termination_date = null;

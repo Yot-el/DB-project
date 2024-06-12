@@ -1,5 +1,6 @@
-buttons = document.querySelectorAll(".rent__button");
-modal = document.querySelector(".delete-modal");
+const buttons = document.querySelectorAll(".rent__button");
+const modal = document.querySelector(".delete-modal");
+const modalCloseButton = modal.querySelector(".delete-modal-close");
 
 const openDeleteModal = (event) => {
   const form = modal.querySelector(".form");
@@ -30,3 +31,7 @@ const openDeleteModal = (event) => {
 buttons.forEach(button => {
   button.addEventListener('click', openDeleteModal);
 });
+
+modalCloseButton.addEventListener('click', () => {
+  modal.close();
+})

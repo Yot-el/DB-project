@@ -155,7 +155,7 @@ ALTER SEQUENCE public.client_id_seq OWNED BY public.client.id;
 
 CREATE TABLE public.office (
     id bigint NOT NULL,
-    owner_id bigint NOT NULL,
+    owner_id bigint,
     building_type_id smallint,
     building_condition_id smallint,
     address character varying(200) NOT NULL,
@@ -203,7 +203,7 @@ ALTER SEQUENCE public.office_id_seq OWNED BY public.office.id;
 CREATE TABLE public.rent (
     id bigint NOT NULL,
     office_id bigint NOT NULL,
-    client_id bigint NOT NULL,
+    client_id bigint,
     start_date date NOT NULL,
     end_date date NOT NULL,
     termination_date date,
@@ -645,7 +645,7 @@ ALTER TABLE ONLY public.office
 --
 
 ALTER TABLE ONLY public.office
-    ADD CONSTRAINT office_owner_id_fkey FOREIGN KEY (owner_id) REFERENCES public.client(id);
+    ADD CONSTRAINT office_owner_id_fkey FOREIGN KEY (owner_id) REFERENCES public.client(id) ON DELETE SET NULL;
 
 
 --
@@ -653,7 +653,7 @@ ALTER TABLE ONLY public.office
 --
 
 ALTER TABLE ONLY public.rent
-    ADD CONSTRAINT rent_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.client(id);
+    ADD CONSTRAINT rent_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.client(id) ON DELETE SET NULL;
 
 
 --

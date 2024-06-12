@@ -88,9 +88,13 @@
                 <?= $rent->start_date ?> - <?= $rent->end_date ?>
               </div>
               <div>
-                <a class="rent-list__link" href="client.php?id=<?= $rent->client_id?>">
-                  Арендатор ID <?= $rent->client_id ?>
-                </a>
+                <?php if ($rent->client_id) { ?>
+                  <a class="rent-list__link" href="client.php?id=<?= $rent->client_id?>">
+                    Арендатор ID <?= $rent->client_id ?>
+                  </a>
+                <?php } else { ?>
+                  Арендатор был удален;
+                <?php } ?>
               </div>
               <div>
                 <a class="rent-list__link" href="office.php?id=<?=$rent->office_id?>">

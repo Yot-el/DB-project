@@ -37,7 +37,7 @@ class ClientsPage extends Page {
     try {
       $stmt = $this->db->query($query, $params);
       $count = ($stmt->fetch())["count"];
-      $this->totalPagesNumber = $count / $this->limit;
+      $this->totalPagesNumber = round($count / $this->limit);
     } catch (PDOException $exception) {
       echo $exception->getMessage();
     }
